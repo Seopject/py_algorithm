@@ -1,9 +1,8 @@
 word = input()
 
 croatian = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
-
+cnt = 0
 for i in croatian:
-    if i in word:
-        print(1)
+    cnt += word.count(i)
 
-print(word)
+print(len(word) - cnt)

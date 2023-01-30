@@ -1,3 +1,2 @@
-A = {'a', 'b', 'c'}
-A.append('d')
-print(A)
+height, width, customer = list(map(int, input().split()))
+print(height, width, customer)

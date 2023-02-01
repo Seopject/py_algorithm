@@ -8,8 +8,8 @@ import time
 start = time.time()
 
 N = int(input())
-test = [0]*(N+1)
-
+test = [1,1]+[0]*(N-1)
+prime = []
 
 for i in range(2, int(N**1/2)+1):
     if test[i] == 1:
@@ -22,5 +22,11 @@ for i in range(2, int(N**1/2)+1):
 print(test)
 end = time.time()
 print(end - start)
+
+a = [False,True]
+if a[0]:
+    print('T')
+else:
+    print('F')
 
 

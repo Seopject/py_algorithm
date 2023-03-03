@@ -1,3 +1,3 @@
 N = int(input())
-ans = eval(input())
-print(ans)
+txt = list(input())
+print(txt)

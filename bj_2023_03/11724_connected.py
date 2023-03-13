@@ -21,12 +21,7 @@ while sum(visited[1:]) < N:
         else: break # while
     while Q:
         t = Q.popleft()
-        if sum(adj[t]) == 0:
-            visited[t] = 1
-            break   # while Q
-        elif sum(adj[t]) == 1 and adj[t][t] == 1:
-            visited[t] = 1
-            break
+
 
         for i in range(1,N+1):
             if adj[t][i] == 1 and visited[i] == 0:

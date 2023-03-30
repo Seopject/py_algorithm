@@ -1,24 +1,17 @@
-def top(arr, idx):
-    global B, answer
+def top(i,k):
+    global answer, B
+    if i == k:
+        temp = 0
+        for k in range(N):
+            temp += p[k]*arr[k]
+        if temp >= B and answer > temp:
+            answer = temp
 
-    if sum(arr) == 0:
-        return
-
-    elif sum(arr) >= B and sum(arr) < answer:
-        answer = sum(arr)
-
-    for i in range(idx, N):
-        temp = arr[i]
-        arr[i] -= temp
-        print(arr)
-        print(visited)
-        if arr not in visited:
-            visited.append(arr)
-            top(arr,i)
-            arr[i] += temp
-            top(arr, i)
-        else:
-            return
+    else:
+        p[i] = 0
+        top(i+1,k)
+        p[i] = 1
+        top(i+1,k)
 
 T = int(input())
 for tc in range(1,T+1):
@@ -26,10 +19,8 @@ for tc in range(1,T+1):
     arr = list(map(int,input().split()))
     answer = 2000001
     visited = []
-    if sum(arr) == B:
-        print(f'#{tc} {0}')
-        continue
+    p = [0]*N
 
-    top(arr, N)
+    top(0, N)
 
-    print(f'#{tc} {answer-B}')
+    print(f'#{tc} {answer - B}')

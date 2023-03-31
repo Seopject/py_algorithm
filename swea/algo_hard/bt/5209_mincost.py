@@ -4,7 +4,8 @@ def func(i,N):
     if i == N:
         if answer > sum(col):
             answer = sum(col)
-    elif sum(col) > answer: return
+            return
+    elif sum(col) >= answer: return
     else:
         for j in range(N):
             if col[j] == 0:

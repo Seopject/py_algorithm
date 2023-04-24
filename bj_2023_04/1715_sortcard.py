@@ -1,11 +1,23 @@
+import heapq
+import sys
+
+input = sys.stdin.readline
+
 N = int(input())
-arr = [0]*100001
+Q = []
 for i in range(N):
-    arr[int(input())] = 1
+    heapq.heappush(Q, int(input()))
 
 ans = 0
-for i in range(100001):
-    if arr[i] != 0:
-        ans += ans + i*arr[i]
 
-print(ans)
+if N == 1:
+    print(0)
+
+else:
+    for i in range(N-1):
+        front = heapq.heappop(Q)
+        back = heapq.heappop(Q)
+        ans += (front+back)
+        heapq.heappush(Q,front+back)
+
+    print(ans)
